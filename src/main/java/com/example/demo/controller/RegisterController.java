@@ -41,7 +41,7 @@ public class RegisterController {
         return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(("Could not register user"));
     }
     
-    @GetMapping("sign")
+    @GetMapping("signIn")
     public ResponseEntity signIn(
             @RequestParam(required = true) String email,
             @RequestParam(required = true) String password){
