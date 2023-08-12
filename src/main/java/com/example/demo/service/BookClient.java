@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.service;
 
+import com.example.demo.model.BookDetails;
 import io.vavr.control.Try;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.demo;
+package com.example.demo.model;
 
 import lombok.Data;
 
@@ -11,11 +11,7 @@ import lombok.Data;
  * @author user
  */
 @Data
-public class BookDetailsReponse {
-
-    private Integer id;
-    private String title;
-    private String author;
-    private String genre;
-    private String description;
+public class UserDto {
+    private String name;
+    private String rollNumber;
 }

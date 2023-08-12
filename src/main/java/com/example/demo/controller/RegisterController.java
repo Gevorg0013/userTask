@@ -1,5 +1,7 @@
 
-package com.example.demo;
+package com.example.demo.controller;
+import com.example.demo.model.Account;
+import com.example.demo.service.RegisterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,7 @@ import java.util.Optional;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 /**
  *
  * @author Gev
@@ -37,6 +40,19 @@ public class RegisterController {
 
         return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(("Could not register user"));
     }
+    
+    @GetMapping
+    public ResponseEntity signIn(
+            @RequestParam(required = true) String email,
+            @RequestParam(required = true) String password){
+        Optional<Optional<Account>> findByMailAndByPassword = accountService.findByMailAndByPassword(email, password);
+        if(findByMailAndByPassword.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(findByMailAndByPassword.get().get());
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("pls correct email or password!");
+        }
+    }
+
     
     
     @PostMapping(path = "/register", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -2,16 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.demo;
+package com.example.demo.service;
+import com.example.demo.model.Account;
+import com.example.demo.repository.AccountRepository;
 import java.util.Optional;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author user
  */
+@Service
 public class RegisterService {
 
     @Autowired
@@ -30,6 +34,10 @@ public class RegisterService {
     
       public Optional<Optional<Account>> findByMail(final String email) {
         return Optional.of(this.accountRepository.findByEmail(email));
+    }
+      
+       public Optional<Optional<Account>> findByMailAndByPassword(final String email, final String password) {
+        return Optional.of(this.accountRepository.findByEmailAndPassword(email,password));
     }
 
     public Optional<List<Account>> getAccounts() {
