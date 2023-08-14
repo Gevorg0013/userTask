@@ -5,12 +5,14 @@
 package com.example.demo.util;
 
 import java.security.SecureRandom;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author user
  */
-
+@Component
 public class TokenGenerator {
 
         protected static SecureRandom random = new SecureRandom();
