@@ -71,6 +71,11 @@ public class RegisterController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("pls correct email or password!");
         }
     }
+    
+    @GetMapping("sayHello")
+    public String sayHello() {
+        return "hello";
+    }
 
     @PostMapping(path = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addAccount(
